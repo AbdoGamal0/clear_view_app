@@ -5,10 +5,11 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+  bool isLoading = false;
 
   void login(String email, String password) async {
+    isLoading = true;
     emit(AuthLoading());
-    print('Authloading Emitted');
     try {
       // ignore: unused_local_variable
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -17,13 +18,12 @@ class AuthCubit extends Cubit<AuthState> {
       );
 
       emit(AuthSuccess());
-      print('AuthSuccess Emitted');
+      isLoading = false;
     } on FirebaseException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure('No user found for that email.'));
       } else if (e.code == 'wrong-password') {
         emit(AuthFailure('Please enter correct password'));
-        print('AuthFailure Emitted');
       }
     } catch (e) {
       emit(

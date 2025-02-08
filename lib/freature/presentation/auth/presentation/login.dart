@@ -20,7 +20,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     final size = MediaQuery.sizeOf(context);
@@ -28,7 +27,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          print('Current State: ${state.runtimeType}'); // ✅ طباعة الحالة
+          // print('Current State: ${state.runtimeType}'); // ✅ طباعة الحالة
 
           if (state is AuthSuccess) {
             Navigator.pushReplacementNamed(context, HomeScreen.routeName);
@@ -96,19 +95,12 @@ class LoginScreen extends StatelessWidget {
                       press: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
-                        } else {
-                          autovalidateMode = AutovalidateMode.always;
-                        }
+                        } else {}
+
                         BlocProvider.of<AuthCubit>(context).login(
                           emailController.text,
                           passwordController.text,
                         );
-
-                        // Navigator.pushNamedAndRemoveUntil(
-                        //     context,
-                        //     HomeScreen.routeName,
-                        //     (route) => true,
-                        //   );
                       },
                       color: kPrimaryColor,
                       textColor: kWhiteColor,

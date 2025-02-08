@@ -1,4 +1,4 @@
-import 'package:clear_view/freature/presentation/shared_widgets/build_background.dart';
+import 'package:clear_view/core/utils/config/shared_widgets/build_background.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/config/constants.dart';

@@ -9,6 +9,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/utils/config/constants.dart';
 import '../../../../helpers/show_snake_bar.dart';
 import '../../home/home_screen.dart';
+import 'reset_password.dart';
 import 'widgets/already_have_an_account_check.dart';
 import 'widgets/custom_password_field.dart';
 import 'widgets/custom_text_field.dart';
@@ -23,11 +24,10 @@ class RegisterScreen extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-
     return Scaffold(
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          print('Current State: ${state.runtimeType}');
+          // print('Current State: ${state.runtimeType}');
           if (state is AuthSuccess) {
             Navigator.pushNamed(context, HomeScreen.routeName);
           } else if (state is AuthFailure) {
@@ -100,7 +100,9 @@ class RegisterScreen extends StatelessWidget {
                   height: size.height * .01,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, ResetPassword.routeName);
+                    },
                     child: const Text(
                       'Forgot Password ?',
                       style: TextStyle(color: kPrimaryColor),
@@ -113,11 +115,6 @@ class RegisterScreen extends StatelessWidget {
                     press: () {
                       BlocProvider.of<AuthCubit>(context).register(
                           emailController.text, passwordController.text);
-                      // Navigator.pushNamedAndRemoveUntil(
-                      //   context,
-                      //   HomeScreen.routeName,
-                      //   (route) => true,
-                      // );
                     },
                     color: kPrimaryColor,
                     textColor: kWhiteColor),
