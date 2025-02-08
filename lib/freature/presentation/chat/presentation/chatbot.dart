@@ -59,7 +59,6 @@ class _ChatbotState extends State<Chatbot> {
                   child: CustomTextField(
                     controller: chatController,
                     hintText: 'Type your question here...',
-                    iconPath: 'assets/images/Microphone.png',
                     labelText: 'Ask',
                   ),
                 ),

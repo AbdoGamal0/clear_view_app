@@ -32,7 +32,7 @@ class ClearView extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const LoginScreen(),
+        home: const OnBoarding(),
         routes: {
           OnBoarding.routeName: (context) => const OnBoarding(),
           HomeScreen.routeName: (context) => const HomeScreen(),

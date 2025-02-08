@@ -30,7 +30,7 @@ class OnboardingWidget extends StatelessWidget {
                   curve: Curves.easeInOut,
                 );
               },
-              child: const Text('Next'),
+              child: const Text('Skip', style: TextStyle(color: kPrimaryColor)),
             ),
             Image.asset('assets/images/EyeLogo.png'),
           ],
