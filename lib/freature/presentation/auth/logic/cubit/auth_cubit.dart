@@ -5,10 +5,8 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
-  bool isLoading = false;
 
   void login(String email, String password) async {
-    isLoading = true;
     emit(AuthLoading());
     try {
       // ignore: unused_local_variable
@@ -18,7 +16,6 @@ class AuthCubit extends Cubit<AuthState> {
       );
 
       emit(AuthSuccess());
-      isLoading = false;
     } on FirebaseException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure('No user found for that email.'));
