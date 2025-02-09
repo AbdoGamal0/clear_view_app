@@ -141,7 +141,8 @@ class RegisterScreen extends StatelessWidget {
                   press: () {
                     Navigator.pushReplacementNamed(context, '/login');
                   },
-                )
+                ),
+                const Spacer(flex: 1),
               ],
             ),
           ),

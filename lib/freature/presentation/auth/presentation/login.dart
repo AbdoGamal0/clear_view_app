@@ -50,12 +50,14 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
+                    const Spacer(flex: 1),
                     Image.asset(
                       klEyeLogo,
                       width: size.width,
                       height: size.height * .12,
                       fit: BoxFit.fitHeight,
                     ),
+                    const Spacer(flex: 2),
                     const Align(
                       alignment: Alignment.topLeft,
                       child: Text(
@@ -131,6 +133,7 @@ class LoginScreen extends StatelessWidget {
                         );
                       },
                     ),
+                    const Spacer(flex: 1),
                   ],
                 ),
               ),
