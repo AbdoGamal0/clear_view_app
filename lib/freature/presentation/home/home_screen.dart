@@ -1,6 +1,9 @@
+import 'package:clear_view/freature/presentation/find_doctor/book_doctor_with_map.dart';
 import 'package:flutter/material.dart';
 
+import '../chat/presentation/chatbot_onboarding/onboarding_chatbot.dart';
 import '../detectimage/detect_disease_page.dart';
+import '../vision_test/onboarding_vision_test/onboarding_vision_test.dart';
 
 // import '../../../detectimage/themeofdetectimage.dart';
 // import '../../../find_doctor/ListOfDoctor.dart';
@@ -179,13 +182,7 @@ class HomeScreen extends StatelessWidget {
                     text: 'Detect diseases',
                     backgroundColor: const Color(0xFFDFEFFC),
                     onTap: () {
-                      // Navigator.pushNamed(context, DetectDiseasePage.routeName);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetectDiseasePage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, DetectDiseasePage.routeName);
                     },
                   ),
                   IconButtonWithText(
@@ -193,12 +190,7 @@ class HomeScreen extends StatelessWidget {
                     text: 'Find doctor',
                     backgroundColor: const Color(0xFFFDF3F3),
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const DoctorsListingPage(),
-                      //   ),
-                      // );
+                      Navigator.pushNamed(context, DoctorDetailsPage.routeName);
                     },
                   ),
                   IconButtonWithText(
@@ -206,12 +198,7 @@ class HomeScreen extends StatelessWidget {
                     text: 'Chatbot',
                     backgroundColor: const Color(0xFFF5EDC1),
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => Chatbot(),
-                      //   ),
-                      // );
+                      Navigator.pushNamed(context, ChatbotOnboarding.routeName);
                     },
                   ),
                   IconButtonWithText(
@@ -219,12 +206,8 @@ class HomeScreen extends StatelessWidget {
                     text: 'Vision test',
                     backgroundColor: const Color(0xFFD0F6D8),
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => VisionTest(),
-                      //   ),
-                      // );
+                      Navigator.pushNamed(
+                          context, OnboardingVisionTest.routeName);
                     },
                   ),
                 ],

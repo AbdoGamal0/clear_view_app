@@ -2,7 +2,7 @@ import 'package:clear_view/core/models/onboard.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/utils/config/constants.dart';
+import '../../../../../core/utils/config/constants.dart';
 
 class OnboardingWidget extends StatelessWidget {
   const OnboardingWidget({

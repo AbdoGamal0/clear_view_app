@@ -10,11 +10,10 @@ class Chatbot extends StatefulWidget {
   static String routeName = '/homechatbot';
 
   @override
-  // ignore: library_private_types_in_public_api
-  _ChatbotState createState() => _ChatbotState();
+  ChatbotState createState() => ChatbotState();
 }
 
-class _ChatbotState extends State<Chatbot> {
+class ChatbotState extends State<Chatbot> {
   final TextEditingController chatController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
@@ -78,6 +77,7 @@ class _ChatbotState extends State<Chatbot> {
                 ),
               ],
             ),
+            const SizedBox(height: 24),
           ],
         ),
       ),

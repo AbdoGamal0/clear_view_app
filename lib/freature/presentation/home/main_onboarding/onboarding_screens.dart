@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:clear_view/core/models/onboard.dart';
+import 'package:clear_view/helpers/onboarding_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../../auth/presentation/login.dart';
 import 'widgets/onboarding_screen1.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -15,7 +17,7 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   final PageController controller = PageController();
-  late Timer _timer;
+  Timer? _timer;
   int currentPage = 0;
 
   @override
@@ -28,21 +30,32 @@ class _OnBoardingState extends State<OnBoarding> {
     _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       if (currentPage < onboardData.length - 1) {
         currentPage++;
+        controller.animateToPage(
+          currentPage,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
       } else {
-        currentPage = 0; // Reset to the first page if it's the last one
+        _completeOnBoarding();
       }
-      controller.animateToPage(
-        currentPage,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
     });
+  }
+
+  void _completeOnBoarding() async {
+    _timer?.cancel();
+    await OnBoardingManager.setOnBoardingSeen();
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
   }
 
   @override
   void dispose() {
     controller.dispose();
-    _timer.cancel(); // Cancel the timer to prevent memory leaks
+    _timer?.cancel(); // تأكد من إلغاء المؤقت
     super.dispose();
   }
 
@@ -54,7 +67,9 @@ class _OnBoardingState extends State<OnBoarding> {
         itemCount: onboardData.length,
         physics: const BouncingScrollPhysics(),
         onPageChanged: (index) {
-          currentPage = index;
+          setState(() {
+            currentPage = index;
+          });
         },
         itemBuilder: (context, index) => OnboardingWidget(
           onboard: onboardData[index],

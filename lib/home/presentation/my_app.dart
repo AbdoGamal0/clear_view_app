@@ -1,5 +1,6 @@
 import 'package:clear_view/freature/presentation/chat/presentation/chatbot.dart';
 import 'package:clear_view/freature/presentation/chat/presentation/chatbot_onboarding/onboarding1_chatbot.dart';
+import 'package:clear_view/freature/presentation/find_doctor/book_doctor_with_map.dart';
 import 'package:clear_view/freature/presentation/vision_test/onboarding_vision_test/onboarding_vision_test.dart';
 import 'package:clear_view/freature/presentation/vision_test/vision_test.dart';
 import 'package:device_preview/device_preview.dart';
@@ -14,13 +15,13 @@ import '../../freature/presentation/chat/presentation/chatbot_onboarding/onboard
 import '../../freature/presentation/detectimage/detect_disease_page.dart';
 import '../../freature/presentation/doctor/presentation/patients.dart';
 import '../../freature/presentation/home/home_screen.dart';
-import '../../freature/presentation/main_onboarding/onboarding_screens.dart';
+import '../../freature/presentation/home/main_onboarding/onboarding_screens.dart';
 import '../../freature/presentation/vision_test/onboarding_vision_test/onboarding_vision_test1.dart';
 import '../../freature/presentation/vision_test/vision_test_result.dart';
 
 class ClearView extends StatelessWidget {
-  const ClearView({super.key});
-
+  final bool hasSeenOnboarding;
+  const ClearView({super.key, required this.hasSeenOnboarding});
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -36,7 +37,7 @@ class ClearView extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const OnBoarding(),
+        home: hasSeenOnboarding ? const LoginScreen() : const OnBoarding(),
         routes: {
           OnBoarding.routeName: (context) => const OnBoarding(),
           HomeScreen.routeName: (context) => const HomeScreen(),
@@ -54,6 +55,7 @@ class ClearView extends StatelessWidget {
           TestVisionResult.routeName: (context) => const TestVisionResult(),
           PatientsPage.routeName: (context) => const PatientsPage(),
           DetectDiseasePage.routeName: (context) => DetectDiseasePage(),
+          DoctorDetailsPage.routeName: (context) => const DoctorDetailsPage(),
         },
       ),
     );

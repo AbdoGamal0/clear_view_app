@@ -2,7 +2,7 @@ import 'package:clear_view/core/utils/config/constants.dart';
 import 'package:clear_view/freature/presentation/auth/presentation/widgets/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../helpers/onboarding_state.dart';
+import '../chatbot.dart';
 
 class ChatbotOnboarding extends StatelessWidget {
   const ChatbotOnboarding({super.key});
@@ -44,8 +44,8 @@ class ChatbotOnboarding extends StatelessWidget {
                   color: kPrimaryColor,
                   textColor: kWhiteColor,
                   onPress: () {
-                    completeOnboarding(context);
-                    Navigator.pushNamed(context, '/homechatbot');
+                    // completeOnboarding(context, const Chatbot());
+                    Navigator.pushNamed(context, Chatbot.routeName);
                   },
                 ),
                 const Spacer(flex: 1),
