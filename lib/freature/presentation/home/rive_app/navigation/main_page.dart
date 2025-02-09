@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../chat/presentation/chatbot_onboarding/onboarding_chatbot.dart';
-import '../detectimage/detect_disease_page.dart';
-import '../find_doctor/ListOfDoctor.dart';
-import '../vision_test/onboarding_vision_test/onboarding_vision_test.dart';
-import 'rive_app/navigation/main_page.dart';
+import '../../../find_doctor/ListOfDoctor.dart';
 
-// import '../../../detectimage/themeofdetectimage.dart';
-// import '../../../find_doctor/ListOfDoctor.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-  static String routeName = '/home_screen';
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,15 +54,15 @@ class HomeScreen extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetectDiseasesPage(),
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => Chatbot(), // الصفحة الجديدة
+                          //   ),
+                          // );
                         },
                         child: Image.asset(
-                          'assets/images/images2/img_image.png',
+                          'assets/images/img_image.png',
                           width: 110,
                           height: 100,
                           fit: BoxFit.cover,
@@ -119,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const DetectDiseasesResultPage(),
+                                    const DetectDiseasesPage(),
                               ),
                             );
                           },
@@ -153,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                     right: -80,
                     top: -50,
                     child: Image.asset(
-                      'assets/images/images2/img_smiling_asian_d.png',
+                      'assets/images/img_smiling_asian_d.png',
                       width: 250,
                       height: 250,
                     ),
@@ -179,37 +171,55 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButtonWithText(
-                    imagePath: 'assets/images/images2/img_vector.png',
+                    imagePath: 'assets/images/img_vector.png',
                     text: 'Detect diseases',
                     backgroundColor: const Color(0xFFDFEFFC),
                     onTap: () {
-                      Navigator.pushNamed(context, DetectDiseasePage.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DetectDiseasesPage(),
+                        ),
+                      );
                     },
                   ),
                   IconButtonWithText(
-                    imagePath: 'assets/images/images2/img_vector_28x32.png',
+                    imagePath: 'assets/images/img_vector_28x32.png',
                     text: 'Find doctor',
                     backgroundColor: const Color(0xFFFDF3F3),
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, DoctorsListingPage.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DoctorsListingPage(),
+                        ),
+                      );
                     },
                   ),
                   IconButtonWithText(
-                    imagePath: 'assets/images/images2/img_image.png',
+                    imagePath: 'assets/images/img_image.png',
                     text: 'Chatbot',
                     backgroundColor: const Color(0xFFF5EDC1),
                     onTap: () {
-                      Navigator.pushNamed(context, ChatbotOnboarding.routeName);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => Chatbot(),
+                      //   ),
+                      // );
                     },
                   ),
                   IconButtonWithText(
-                    imagePath: 'assets/images/images2/img_vector_32x32.png',
+                    imagePath: 'assets/images/img_vector_32x32.png',
                     text: 'Vision test',
                     backgroundColor: const Color(0xFFD0F6D8),
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, OnboardingVisionTest.routeName);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => VisionTest(),
+                      //   ),
+                      // );
                     },
                   ),
                 ],
@@ -362,7 +372,7 @@ class AppointmentCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(25), // يجعل الصورة دائرية
                 child: Image.asset(
-                  'assets/images/images2/img_user.png', // استبدل بالصورة المطلوبة
+                  'assets/images/img_user.png', // استبدل بالصورة المطلوبة
                   width: 40,
                   height: 40,
                   fit: BoxFit.cover,
@@ -386,8 +396,8 @@ class AppointmentCard extends StatelessWidget {
   }
 }
 
-class DetectDiseasesResultPage extends StatelessWidget {
-  const DetectDiseasesResultPage({super.key});
+class DetectDiseasesPage extends StatelessWidget {
+  const DetectDiseasesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

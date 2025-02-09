@@ -14,14 +14,15 @@ import '../../freature/presentation/auth/presentation/reset_password.dart';
 import '../../freature/presentation/chat/presentation/chatbot_onboarding/onboarding_chatbot.dart';
 import '../../freature/presentation/detectimage/detect_disease_page.dart';
 import '../../freature/presentation/doctor/presentation/patients.dart';
+import '../../freature/presentation/find_doctor/ListOfDoctor.dart';
 import '../../freature/presentation/home/home_screen.dart';
-import '../../freature/presentation/home/main_onboarding/onboarding_screens.dart';
+import '../../freature/presentation/main_onboarding/onboarding_screens.dart';
 import '../../freature/presentation/vision_test/onboarding_vision_test/onboarding_vision_test1.dart';
 import '../../freature/presentation/vision_test/vision_test_result.dart';
 
 class ClearView extends StatelessWidget {
   final bool hasSeenOnboarding;
-  const ClearView({super.key, required this.hasSeenOnboarding});
+  const ClearView({super.key, this.hasSeenOnboarding = false});
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -37,7 +38,7 @@ class ClearView extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: hasSeenOnboarding ? const LoginScreen() : const OnBoarding(),
+        home: hasSeenOnboarding ? const HomeScreen() : const OnBoarding(),
         routes: {
           OnBoarding.routeName: (context) => const OnBoarding(),
           HomeScreen.routeName: (context) => const HomeScreen(),
@@ -56,6 +57,7 @@ class ClearView extends StatelessWidget {
           PatientsPage.routeName: (context) => const PatientsPage(),
           DetectDiseasePage.routeName: (context) => DetectDiseasePage(),
           DoctorDetailsPage.routeName: (context) => const DoctorDetailsPage(),
+          DoctorsListingPage.routeName: (context) => const DoctorsListingPage(),
         },
       ),
     );

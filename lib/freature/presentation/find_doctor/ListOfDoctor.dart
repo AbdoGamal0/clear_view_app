@@ -32,7 +32,7 @@ class Doctor {
 // صفحة عرض الأطباء
 class DoctorsListingPage extends StatefulWidget {
   const DoctorsListingPage({super.key});
-
+  static const String routeName = '/DoctorsListingPage';
   @override
   State<DoctorsListingPage> createState() => _DoctorsListingPageState();
 }

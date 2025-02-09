@@ -4,7 +4,7 @@ import 'package:clear_view/core/models/onboard.dart';
 import 'package:clear_view/helpers/onboarding_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../auth/presentation/login.dart';
+import '../auth/presentation/login.dart';
 import 'widgets/onboarding_screen1.dart';
 
 class OnBoarding extends StatefulWidget {
