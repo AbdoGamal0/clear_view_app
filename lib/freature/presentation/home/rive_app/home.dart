@@ -5,7 +5,7 @@ import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart' hide LinearGradient;
 
-import '../../find_doctor/ListOfDoctor.dart';
+import '../../doctor/presentation/find_doctor/ListOfDoctor.dart';
 import '../home_screen.dart';
 import 'assets.dart';
 import 'models/menu_item.dart';

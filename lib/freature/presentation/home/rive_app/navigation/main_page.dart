@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../find_doctor/ListOfDoctor.dart';
+import '../../../doctor/presentation/find_doctor/ListOfDoctor.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

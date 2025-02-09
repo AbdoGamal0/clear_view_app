@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/models/patient.dart';
 import '../../../../core/utils/config/constants.dart';
-import 'widgets/patient_card.dart';
+import '../../doctor/presentation/widgets/patient_card.dart';
 
 class PatientsPage extends StatefulWidget {
   const PatientsPage({super.key});

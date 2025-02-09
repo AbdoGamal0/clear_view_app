@@ -1,7 +1,7 @@
-import 'package:clear_view/freature/presentation/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../find_doctor/ListOfDoctor.dart';
+import '../../../doctor/presentation/find_doctor/ListOfDoctor.dart';
+import '../../home_screen.dart';
 import 'help.dart';
 import 'tab_item.dart';
 

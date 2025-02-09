@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:clear_view/freature/presentation/auth/logic/cubit/auth_cubit.dart';
 import 'package:clear_view/freature/presentation/auth/presentation/widgets/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
